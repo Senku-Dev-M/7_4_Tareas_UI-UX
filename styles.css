@@ -204,16 +204,3 @@ body{
   text-align:center;
 }
 .meta .link{ color:var(--link); }
-
-/* ============================================================
-   Responsive (pantallas medianas/pequeñas)
-   ============================================================ */
-@media (max-width: 1220px){
-  .card{
-    width:min(560px, 100%);
-    height:auto;
-    grid-template-columns: 1fr;
-  }
-  .card__media{ display:none }
-  .card__content{ width:100% }
-}
