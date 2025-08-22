@@ -1,5 +1,5 @@
 /* ============================================================
-   🎨 Tokens de diseño (extraídos de Figma / Dev Mode)
+   Tokens de diseño (extraídos de Figma / Dev Mode)
    ============================================================ */
 :root{
   /* Lienzo */
@@ -90,10 +90,9 @@ body{
   grid-template-columns: var(--media-w) var(--content-w);
 }
 
-/* Columna izquierda: imagen de fondo */
+/* Columna izquierda: imagen o SVG */
 .card__media{
   width:var(--media-w);
-  background-image:url("https://firebasestorage.googleapis.com/v0/b/qatustore.firebasestorage.app/o/ImageBackground.png?alt=media&token=f889dddf-9279-4d6d-9de0-f32cf10ae03c");
   background-size:cover;
   background-position:center;
 }
@@ -143,7 +142,7 @@ body{
   background:var(--input-bg);
   border:1px solid var(--input-border);
   outline:none;
-  font: "Inter";
+  font-family:var(--ff);
   font-size:16px;
   color:var(--text);
 }
@@ -177,6 +176,7 @@ body{
   font-weight:600;
 }
 .link:hover{ text-decoration:underline }
+.link--muted{ color:var(--link); }
 
 /* Botón primario */
 .btn{
