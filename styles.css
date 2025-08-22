@@ -152,7 +152,7 @@ body{
 .password-wrap{ position:relative }
 .icon-btn{
   position:absolute;
-  right:12px; top:50%; transform:translateY(-50%);
+  right:16px; top:50%; transform:translateY(-50%);
   width:24px; height:24px;
   display:grid; place-items:center;
   border:0; background:transparent;
