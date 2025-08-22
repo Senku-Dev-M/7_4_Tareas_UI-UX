@@ -1,0 +1,219 @@
+/* ============================================================
+   🎨 Tokens de diseño (extraídos de Figma / Dev Mode)
+   ============================================================ */
+:root{
+  /* Lienzo */
+  --page-bg: #EDEDED;
+  --page-pad-x: 360px;
+  --page-pad-y: 140px;
+
+  /* Card (contenedor principal) */
+  --card-w: 1200px;
+  --card-h: 800px;
+  --card-radius: 32px;
+  --card-bg: #FFFFFF;
+
+  /* Columnas internas */
+  --media-w: 744px;
+  --content-w: 456px;
+
+  /* Tipografía */
+  --ff: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --title-size: 24px;
+  --title-weight: 700;
+  --title-color: #191B1E;
+
+  /* Texto */
+  --text: #191B1E;
+  --muted: #737A86;  /* gris secundario para placeholders y textos sutiles */
+
+  /* Inputs */
+  --field-w: 360px;
+  --input-h: 56px;
+  --input-pad-x: 16px;
+  --input-radius: 12px;
+  --input-bg: #ECEFF1;
+  --input-border: transparent;
+  --placeholder: #737A86;
+
+  /* Botones / links */
+  --btn-h: 52px;
+  --btn-radius: 8px;
+  --btn-bg: #007AFF;
+  --btn-bg-hover: #0066D6;
+  --btn-text: #FFFFFF;
+  --link: #007AFF;
+
+  /* Espaciados internos */
+  --content-pad-top: 72px;    /* desde borde superior hasta logo */
+  --content-pad-x: 48px;
+  --gap-logo-title: 80px;     /* logo ↔ título */
+  --stack-32: 32px;           /* bloques grandes (ej. botón) */
+  --stack-24: 24px;           /* título ↔ primer input */
+  --stack-16: 16px;           /* inputs entre sí */
+  --stack-12: 12px;           /* password ↔ "Forgot password?" */
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  background:var(--page-bg);
+  font-family:var(--ff);
+  color:var(--text);
+}
+
+/* ============================================================
+   Layout general
+   ============================================================ */
+.page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: var(--page-pad-y) var(--page-pad-x);
+}
+
+/* ============================================================
+   Card (contenedor de login)
+   ============================================================ */
+.card{
+  width:var(--card-w);
+  height:var(--card-h);
+  background:var(--card-bg);
+  border-radius:var(--card-radius);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns: var(--media-w) var(--content-w);
+}
+
+/* Columna izquierda: imagen de fondo */
+.card__media{
+  width:var(--media-w);
+  background-image:url("https://firebasestorage.googleapis.com/v0/b/qatustore.firebasestorage.app/o/ImageBackground.png?alt=media&token=f889dddf-9279-4d6d-9de0-f32cf10ae03c");
+  background-size:cover;
+  background-position:center;
+}
+
+/* Columna derecha: contenido */
+.card__content{
+  width:var(--content-w);
+  padding: var(--content-pad-top) var(--content-pad-x);
+  display:flex;
+  flex-direction:column;
+}
+
+/* ============================================================
+   Elementos de UI
+   ============================================================ */
+
+/* Logo */
+.logo{
+  width:154px; height:48px;
+  display:block;
+  margin-bottom: var(--gap-logo-title);
+}
+
+/* Título */
+.title{
+  margin:0 0 var(--stack-24) 0;
+  font-size:var(--title-size);
+  font-weight:var(--title-weight);
+  color:var(--title-color);
+}
+
+/* Formulario */
+.form{
+  display:flex;
+  flex-direction:column;
+}
+
+/* Inputs */
+.field{ display:block; width: var(--field-w); }
+.field + .field{ margin-top: var(--stack-16); }
+
+.field__input{
+  width:100%;
+  height:var(--input-h);
+  padding:0 var(--input-pad-x);
+  border-radius:var(--input-radius);
+  background:var(--input-bg);
+  border:1px solid var(--input-border);
+  outline:none;
+  font: "Inter";
+  font-size:16px;
+  color:var(--text);
+}
+.field__input::placeholder{ color:var(--placeholder) }
+
+/* Campo de password con icono de ojo */
+.password-wrap{ position:relative }
+.icon-btn{
+  position:absolute;
+  right:12px; top:50%; transform:translateY(-50%);
+  width:24px; height:24px;
+  display:grid; place-items:center;
+  border:0; background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+}
+
+/* "Forgot password?" alineado a la derecha */
+.row{
+  width: var(--field-w);
+  display:flex;
+  margin-top: var(--stack-12);
+}
+.row--end{ justify-content:flex-end }
+
+/* Links */
+.link{
+  color:var(--link);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+.link:hover{ text-decoration:underline }
+
+/* Botón primario */
+.btn{
+  width: var(--field-w);
+  height:var(--btn-h);
+  border-radius:var(--btn-radius);
+  border:0;
+  cursor:pointer;
+  font-weight:600;
+  margin: var(--stack-32) 0;
+}
+.btn--primary{
+  color:var(--btn-text);
+  background:var(--btn-bg);
+}
+.btn--primary:hover{ background:var(--btn-bg-hover) }
+
+/* Texto inferior centrado */
+.meta{
+  width: var(--field-w);
+  margin: 0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1;
+  text-align:center;
+}
+.meta .link{ color:var(--link); }
+
+/* ============================================================
+   Responsive (pantallas medianas/pequeñas)
+   ============================================================ */
+@media (max-width: 1220px){
+  .card{
+    width:min(560px, 100%);
+    height:auto;
+    grid-template-columns: 1fr;
+  }
+  .card__media{ display:none }
+  .card__content{ width:100% }
+}
